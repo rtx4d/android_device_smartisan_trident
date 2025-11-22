@@ -142,7 +142,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.btconfigstore@1.0.vendor
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 2248
+TARGET_SCREEN_HEIGHT := 2242
 TARGET_SCREEN_WIDTH := 1080
 
 # Boot control
@@ -390,6 +390,10 @@ PRODUCT_PACKAGES += \
     libxml2 \
     libsqlite.vendor:64
 
+# Recovery
+PRODUCT_PACKAGES += \
+    librecovery_updater_trident
+
 # Seccomp policy
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp/atfwd@2.0.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/atfwd@2.0.policy \
@@ -480,4 +484,4 @@ PRODUCT_PACKAGES += \
     firmware_WCNSS_qcom_cfg.ini_symlink
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/zte/akershus/akershus-vendor.mk)
+$(call inherit-product, vendor/smartisan/trident/trident-vendor.mk)

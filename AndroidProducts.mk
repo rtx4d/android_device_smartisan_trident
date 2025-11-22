@@ -5,4 +5,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_akershus.mk
+    $(LOCAL_DIR)/lineage_trident.mk

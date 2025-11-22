@@ -2,6 +2,12 @@
 # A10 - from ZTE/GEN_EU_P845A01/P845A01:10/QKQ1.200517.002/20200729.231324:user/release-keys
 # A9 - from ZTE/P845A01_RU/P845A01:9/PKQ1.181203.001/20191106.091545:user/release-keys
 
+# Logic volume
+vendor/bin/dm-tool
+vendor/bin/logic_volume
+vendor/etc/logic_volume.conf
+vendor/etc/init/logic_volume.rc|beafa018e16eb11ded6f78716024bdf82b11022e
+
 # ACDB - A10
 vendor/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb
 vendor/etc/acdbdata/MTP/MTP_Codec_cal.acdb
