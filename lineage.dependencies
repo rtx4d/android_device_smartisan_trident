@@ -1,6 +1,6 @@
 [
   {
-    "repository": "android_kernel_zte_sdm845",
-    "target_path": "kernel/zte/sdm845"
+    "repository": "android_kernel_smartisan_sdm845",
+    "target_path": "kernel/smartisan/sdm845"
   }
 ]
