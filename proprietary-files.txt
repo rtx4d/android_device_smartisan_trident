@@ -61,10 +61,10 @@ vendor/lib/rfsa/adsp/libsns_low_lat_stream_skel.so
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
-vendor/lib/libadm.so
+#vendor/lib/libadm.so
 vendor/lib/libaudcal.so
-vendor/lib/libaudioalsa.so
-vendor/lib/libaudio_log_utils.so
+#vendor/lib/libaudioalsa.so
+#vendor/lib/libaudio_log_utils.so
 vendor/lib/libaudioparsers.so
 vendor/lib/libqtigef.so
 
@@ -78,28 +78,19 @@ vendor/lib/soundfx/libvolumelistener.so
 # Audio firmware
 vendor/firmware/debussy.bin
 
-# ANT+ (system)
-system/lib64/com.qualcomm.qti.ant@1.0.so:system_ext/lib64/com.qualcomm.qti.ant@1.0.so|8b9e0d48f26e6674bd8c933b1eae55a9b46765d2
-system/lib64/libantradio.so:system_ext/lib64/libantradio.so|f54804917291df327827a1e46650ec8448c0f924
-
-# ANT+ (vendor)
-vendor/lib64/hw/com.qualcomm.qti.ant@1.0-impl.so|7d48a7bac081f3552f664cf6aae3b47c340b6258
-vendor/lib64/com.qualcomm.qti.ant@1.0.so;MODULE_SUFFIX=_vendor;FIX_SONAME|15e00b6110557e8c1eb0374484818c6153448bf3
-
-# Bluetooth (A2DP)
-vendor/lib64/com.qualcomm.qti.bluetooth_audio@1.0_vendor.so|02492a5b166db6e75cea868efbddfe9dbfc92738
-vendor/lib64/hw/com.qualcomm.qti.bluetooth_audio@1.0-impl.so
-
-# Bluetooth
-vendor/bin/btnvtool
-vendor/bin/hci_qcomm_init
-vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|e6904746378d86087ee7de918039e368020eb407
-vendor/bin/wcnss_filter
+# Bluetooth - from beryllium's MIUI package V12.0.3.0.QEJMIXM global stable
+vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
-vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|250db69cef78b1f533c32dcafc12bb98904786fd
-vendor/lib64/libbt-hidlclient.so
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
+vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.0-impl.so
+vendor/lib64/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so
 vendor/lib64/libbtnv.so
-vendor/lib64/vendor.qti.hardware.fm@1.0_vendor.so:vendor/lib64/vendor.qti.hardware.fm@1.0.so;FIX_SONAME|1f82c5b17b09bf9687658a57858051a8d4cc4ea7
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
+
+# Bluetooth (A2DP) - from beryllium's MIUI package V12.0.3.0.QEJMIXM global stable
+vendor/lib/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so
+vendor/lib/btaudio_offload_if.so
+vendor/lib/libbluetooth_audio_session_qti.so
 
 # CDSP - from SHIFT6MQ.SOS.5.0.G.20240820-RELEASE-OTA
 vendor/bin/cdsprpcd|bf36700de369628c04da2968929e7a8f4edafa28
@@ -195,40 +186,38 @@ vendor/lib/camera/systemdefault.bin
 vendor/firmware/CAMERA_ICP.elf
 
 # Camera core
-system/lib/libSNPE.so
-system/lib/libarcsoft_beautyshot.so|5fd0187055003f19668fa722b9a6d9990e24b0cb
-system/lib/libarcsoft_dualcam_refocus.so|581847ef0392302f3df7728d86ab30cfbc4e7b35
-system/lib/libarcsoft_high_dynamic_range.so
-system/lib/libarcsoft_low_light_shot.so
-system/lib/libarcsoft_mpbase_sm.so;FIX_SONAME|1ed54fbb2de7eab1d0bbf077c5b3e9d219e0e2b1
-system/lib/libarcsoft_picselfie_algorithm.so
-system/lib/libarcsoft_refocus_sm.so;FIX_SONAME|94f35365d6f52df333cfa5bac9aeff78f3e4e910
-system/lib/libarcsoft_smart_denoise.so
-system/lib/libbeauty_momo_sm.so
-system/lib/libgnustl_shared.so
-system/lib/libimgcmp_jni.so;DISABLE_CHECKELF|6eaad300ce7423e154cb32e4f42a985bee0c68d3
-system/lib/libmegface-new.so
-system/lib/libmegface.so
-system/lib/libmegface_megscene.so
-system/lib/libmegvii_scene.so
-system/lib/libmmcv_sm.so
-system/lib/libmmcamera_dbg.so|2da2ac5393a8666693917bb72502e656707e8e9b
-system/lib/libmmcamera_hdr_tt_lib.so
-system/lib/libmpbase.so
-system/lib/libnative-lib.so
-system/lib/libvideoprocess.so
-system/lib/libqcbor.so
-system/lib/libsmart_autohdr.so
-system/lib/libsmcinvokecred.so
-system/lib/libsmcv.so
-system/lib/libsnpe_loader.so
-system/lib/libsymphony-cpu.so
-system/lib/libsymphonypower.so
-system/lib/libtiff.so
-system/lib/libtt_panorama.so
-system/lib/libyuvutils_sm.so
-system/lib64/libqcbor.so
-vendor/lib/hw/camera.qcom.so|fcf58983967b4b25b1fc192c9b9e8d9483de0ae5
+system/lib/libarcsoft_beautyshot.so:vendor/lib/libarcsoft_beautyshot.so|63f62c678b85ab328780d05c5d71250d66b12c8a
+system/lib/libarcsoft_dualcam_refocus.so:vendor/lib/libarcsoft_dualcam_refocus.so|603916e042324808b9eb6fb8b9709934a3b254f3
+system/lib/libarcsoft_high_dynamic_range.so:vendor/lib/libarcsoft_high_dynamic_range.so|a1dcfc0a12f5f5b6df705c305135e02215787306
+system/lib/libarcsoft_low_light_shot.so:vendor/lib/libarcsoft_low_light_shot.so|57d6a06dd10b704f4cc75028f447adfc09579d51
+system/lib/libarcsoft_mpbase_sm.so:vendor/lib/libarcsoft_mpbase_sm.so;FIX_SONAME|a77a3ce8fe64353379445a4095dc03a8c28e010b
+system/lib/libarcsoft_picselfie_algorithm.so:vendor/lib/libarcsoft_picselfie_algorithm.so|aee86c5d86b1aa5bf74ed4dc2a3ff08c1f19efbb
+system/lib/libarcsoft_smart_denoise.so:vendor/lib/libarcsoft_smart_denoise.so|c658a2900ddbb3a1e27a933c9cfedb9274c82a8b
+system/lib/libbeauty_momo_sm.so:vendor/lib/libbeauty_momo_sm.so|3465471c629e089b369bb90a7cd891b651487b17
+system/lib/libgnustl_shared.so:vendor/lib/libgnustl_shared.so
+system/lib/libimgcmp_jni.so:vendor/lib/libimgcmp_jni.so;DISABLE_CHECKELF|6eaad300ce7423e154cb32e4f42a985bee0c68d3
+system/lib/libmegface-new.so:vendor/lib/libmegface-new.so|40551b78ad9cd23e5e3eee55c6a035c7344b853a
+system/lib/libmegface.so:vendor/lib/libmegface.so
+system/lib/libmegface_megscene.so:vendor/lib/libmegface_megscene.so
+system/lib/libmegvii_scene.so:vendor/lib/libmegvii_scene.so
+system/lib/libmmcv_sm.so:vendor/lib/libmmcv_sm.so|58ebfe2ee88a6deb69a94da62dba96d88b06c90e
+system/lib/libmmcamera_dbg.so:vendor/lib/libmmcamera_dbg.so|2da2ac5393a8666693917bb72502e656707e8e9b
+system/lib/libmmcamera_hdr_tt_lib.so:vendor/lib/libmmcamera_hdr_tt_lib.so
+system/lib/libmpbase.so:vendor/lib/libmpbase.so
+system/lib/libnative-lib.so:vendor/lib/libnative-lib.so|libnative-lib
+system/lib/libvideoprocess.so:vendor/lib/libvideoprocess.so|6533805847c3579a07c9f61da4ddbdf79b72f371
+system/lib/libqcbor.so:vendor/lib/libqcbor.so
+system/lib/libsmart_autohdr.so:vendor/lib/libsmart_autohdr.so
+system/lib/libsmcinvokecred.so:vendor/lib/libsmcinvokecred.so
+system/lib/libsmcv.so:vendor/lib/libsmcv.so
+system/lib/libSNPE.so:vendor/lib/libSNPE.so
+system/lib/libsnpe_loader.so:vendor/lib/libsnpe_loader.so
+system/lib/libsymphony-cpu.so:vendor/lib/libsymphony-cpu.so
+system/lib/libsymphonypower.so:vendor/lib/libsymphonypower.so
+system/lib/libtiff.so:vendor/lib/libtiff.so
+system/lib/libtt_panorama.so:vendor/lib/libtt_panorama.so|46cf4ff661623b1a7002298ad37fa9745e694a4c
+system/lib/libyuvutils_sm.so:vendor/lib/libyuvutils_sm.so|2a9dbee243daa02c1a551577e9cd77d4dbc36394
+vendor/lib/hw/camera.qcom.so|c469c6e0410320d39a245271198927e90c4162d8
 vendor/lib/hw/com.qti.chi.override.so
 vendor/lib/libSensorManagerHAL.so
 vendor/lib/libarcintegration.so
@@ -239,8 +228,12 @@ vendor/lib/libcamxtintlessalgo.so
 vendor/lib/libcom.qti.chinodeutils.so
 vendor/lib/libmms_gyro_vstab.so|0ecf89275a83cc616eec2da013a2b37fc93e93ca
 vendor/lib/libmms_gyro_vstab_auth.so|c29f461d26a5ea5579405119fdda83fba846814c
-vendor/lib/libmms_hal_vstab.so|dc4bbbeb9c193518df45db7d0b4a5e668d406c72
-vendor/lib/libmms_warper_vstab.so|e0408726a8b8f8d657d18687419a1f96120c9c3e
+vendor/lib/libmms_hal_vstab.so|d82b269c88fb59255a689091cded76cee2d19df5
+vendor/lib/libmms_warper_vstab.so|fb1456ea643c32faeadd75c7d52e57253e044ea3
+
+system/lib/libHalSuperSensorServer.so:vendor/lib/libHalSuperSensorServer.so|3c106707d3af5b6608acb3c45f1d248b47a4964c
+system/lib/libSuperSensor.so:vendor/lib/libSuperSensor.so|77dcdf5d6a2ee1e3c325332e907c7be8250bb23b
+system/lib/libSuperSensorCPU.so:vendor/lib/libSuperSensorCPU.so|b6f2ce03e6bcb6fba1d6244b2bf2f313e8ba621f
 
 # CNE - from PNX - PNX_00WW_FIH-user-11-RKQ1.200906.002-00WW_6_21F-release-keys
 system_ext/framework/com.quicinc.cne.api-V1.1-java.jar|88da95df5925ab3c173f951cfe56c95699908359
@@ -324,10 +317,11 @@ vendor/lib64/vendor.qti.hardware.data.qmi@1.0.so;MODULE_SUFFIX=_vendor|b17a82a97
 vendor/lib64/vendor.qti.hardware.slmadapter@1.0.so|07bf28004086b972367c44703bd0247d7a78faf4
 vendor/lib64/vendor.qti.latency@2.0.so|1589280034898a0ab3052234ef90b7c674d5be5b
 
-# Configstore - A10
-#vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service
-#vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
-#vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
+# Configstore - from SHIFT6MQ.SOS.5.0.G.20240820-RELEASE-OTA
+vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service|53762150ee4adb0bbad7102c2e2c5aec14f266a6
+vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc|4ede0250585a44b01d351bbc301d7a13cc3d783d
+vendor/lib/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so|c4f97035b4d6ca50b7a4471c15ff3787be7c5085
+vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so|5e732a1b324f5cfab439217e19b9dcd6663d6082
 
 # Charger
 vendor/bin/hvdcp_opti
@@ -411,11 +405,9 @@ vendor/lib64/hw/vendor.qti.esepowermanager@1.0-impl.so|81cd0527ccb009ed1d644409e
 vendor/lib64/vendor.qti.esepowermanager@1.0.so|f176bd6f4bb7fd4453479dd04c407a2d0cb41f9f
 
 # Fingerprint - FPC
-vendor/bin/hw/android.hardware.biometrics.fpcfingerprint@2.1-service
+vendor/bin/hw/android.hardware.biometrics.fpcfingerprint@2.1-service|96fa4fc0b1ff5008e0059845a1f616c2738b4cc9
 vendor/etc/init/android.hardware.biometrics.fpcfingerprint@2.1-service.rc|838abca243a6b2436bafd43bf1aff3593545bd56
-vendor/etc/permissions/com.fingerprints.extension.xml
-vendor/framework/com.fingerprints.extension.jar
-vendor/lib64/com.fingerprints.extension@1.0.so|50d7a46eaa32f90f239cc1f4a9419f477683e0f1
+vendor/lib64/com.fingerprints.extension@1.0.so|e5e584053c75fa22cc1a15d00bd9ebac856e98fc
 
 # Fingerprint - Goodix
 vendor/bin/hw/android.hardware.biometrics.goodixfingerprint@2.1-service
@@ -434,9 +426,16 @@ vendor/lib64/hw/nvtfingerprint.default.so
 vendor/lib64/libfpr_ca.so
 vendor/lib64/libfpr_library.so
 
+# FM - from beryllium's MIUI package V12.0.3.0.QEJMIXM global stable
+product/lib64/vendor.qti.hardware.fm@1.0.so:system_ext/lib64/vendor.qti.hardware.fm@1.0.so
+system/lib64/fm_helium.so:system_ext/lib64/fm_helium.so
+system/lib64/libfm-hci.so:system_ext/lib64/libfm-hci.so
+vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
+vendor/lib64/vendor.qti.hardware.fm@1.0.so;MODULE_SUFFIX=_vendor
+
 # Gatekeeper
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
-vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
+#vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
 # GPS - from PNX - PNX_00WW_FIH-user-11-RKQ1.200906.002-00WW_6_21F-release-keys
@@ -529,9 +528,11 @@ vendor/lib64/libllvm-glnext.so|c11e3f0f5b6d21d1badcca3bc8cac947c781deeb
 vendor/lib64/libllvm-qcom.so|a80c58c8f316af15a7a2d089536f824836f6c056
 vendor/lib64/libpvr.so|ac4805ba7a7c78570a60340d01248d258046e456
 
+# Graphics (Firmware) - from OnePlus/OnePlus6/OnePlus6:11/RKQ1.201217.002/2109171635:user/release-keys
+vendor/firmware/a630_sqe.fw
+
 # Graphics (Firmware)
 vendor/firmware/a630_gmu.bin
-vendor/firmware/a630_sqe.fw
 vendor/firmware/a630_zap.b00
 vendor/firmware/a630_zap.b01
 vendor/firmware/a630_zap.b02
@@ -629,8 +630,8 @@ vendor/bin/msm_irqbalance|54c73b55125b13fa40abf3852bfae31bc217eddc
 vendor/etc/msm_irqbalance.conf|7394fdd30f52142ff99dd03e5ff991000c34a356
 
 # Keymaster
-vendor/bin/hw/android.hardware.keymaster@3.0-service-qti
-vendor/etc/init/android.hardware.keymaster@3.0-service-qti.rc
+#vendor/bin/hw/android.hardware.keymaster@3.0-service-qti
+#vendor/etc/init/android.hardware.keymaster@3.0-service-qti.rc
 vendor/lib64/hw/android.hardware.keymaster@3.0-impl-qti.so
 vendor/lib64/libkeymasterdeviceutils.so
 vendor/lib64/libkeymasterprovision.so
@@ -654,6 +655,8 @@ vendor/bin/dm-tool
 vendor/bin/logic_volume
 vendor/etc/logic_volume.conf
 vendor/etc/init/logic_volume.rc|beafa018e16eb11ded6f78716024bdf82b11022e
+
+vendor/bin/logdump.sh
 
 # Neural networks - from PNX - PNX_00WW_FIH-user-11-RKQ1.200906.002-00WW_6_21F-release-keys
 vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-qti|2f4c5509649e72b1085c9eabd92a2b0b32090c0e
@@ -806,51 +809,24 @@ vendor/radio/qcril_database/upgrade/6_version_update_ecc_table.sql|0fdf4b6ccb489
 vendor/radio/qcril_database/upgrade/7_version_update_ecc_table.sql|9a76d5747da2876b87b214579c9d74ae92d218d7
 
 # Sensors
-system/lib/libHalSuperSensorServer.so
-system/lib/libSMTSensorCalLibNative.so|6b47680198d89d5c3f568b26b7a09bdbe8db332f
-system/lib/libSuperSensor.so
-system/lib/libSuperSensorCPU.so
-system/lib/libqti-util_system.so
-system/lib/libsdsprpc_system.so
-system/lib/libsensorslog.so
-system/lib/libsns_low_lat_stream_stub.so
-system/lib/libsnsdiaglog.so|a855e2ee4c3e2627e402555fb8e1b7d07f6afa8b
-system/lib/libssc.so|812645b97f6438efb854c3668b6f1c0a6f1e98d6
-system/lib/libqmi_cci_system.so
-system/lib64/libSMTSensorCalLibNative.so|2f0b1678fb2bff903a7fd7caad39e1db87f21cad
-system/lib64/libnotifyaudiohal.so:vendor/lib64/libnotifyaudiohal.so;FIX_SONAME|ab9cc69afbc47ec11b208173c2daa06f2f940c5d
-system/lib64/libqti-util_system.so
-system/lib64/libsdsprpc_system.so
-system/lib64/libsensorslog.so
-system/lib64/libsns_low_lat_stream_stub.so
-system/lib64/libsnsdiaglog.so|49402f55342b65a6e9226ab5e5e9aaac1656ca10
-system/lib64/libssc.so|3b95171e3de653bb8d6dab08e82bd99b0886a7d6
-system/lib64/libqmi_cci_system.so
-vendor/bin/sensors.qcom
+#system/lib64/libnotifyaudiohal.so:vendor/lib64/libnotifyaudiohal.so;FIX_SONAME|ab9cc69afbc47ec11b208173c2daa06f2f940c5d
+vendor/bin/sensors.qcom:vendor/bin/sensors.qti|aed471070910e3efc47025d38c98e1fe7068285c
 vendor/etc/sap.conf
-
-vendor/lib/libSMTSensorCalLibNative.so;MODULE_SUFFIX=_vendor
-vendor/lib/libsensorcal.so
-vendor/lib/libsensorslog.so;MODULE_SUFFIX=_vendor
-vendor/lib/libsns_low_lat_stream_stub.so;MODULE_SUFFIX=_vendor|d1ef41cf2af04b4ba2aef3e1f3a291de23835480
-vendor/lib/libsnsdiaglog.so;MODULE_SUFFIX=_vendor|d0229d96b417c0b17e4cbb0a4b8be96ebf403ca4
-vendor/lib/libssc.so;MODULE_SUFFIX=_vendor|c9d4f44ae24b5d85e37c5629be91b8447aa28805
-vendor/lib/libssc_default_listener.so|4058420ed90db828f991e103e9a352efc757018a
-vendor/lib/sensors.ssc.so
-vendor/lib64/libSMTSensorCalLibNative.so;MODULE_SUFFIX=_vendor
+vendor/lib/libsensorslog.so
+vendor/lib/libssc.so|c9d4f44ae24b5d85e37c5629be91b8447aa28805
 vendor/lib64/libsensorcal.so
-vendor/lib64/libsensorslog.so;MODULE_SUFFIX=_vendor
+vendor/lib64/libsensorslog.so
 vendor/lib64/libsmartisan_cjson.so
-vendor/lib64/libsns_low_lat_stream_stub.so;MODULE_SUFFIX=_vendor|6282d41e71b3c8660ef04d7e517ff36d6b9e4b9d
-vendor/lib64/libsnsdiaglog.so;MODULE_SUFFIX=_vendor|1e09af3435f84f526f7c19c64afd2f97c1ddc4fb
-vendor/lib64/libssc.so;MODULE_SUFFIX=_vendor|7ed47d51ac3f92e68e34f8ecb69ab476b55f1b85
+vendor/lib64/libsns_low_lat_stream_stub.so|6282d41e71b3c8660ef04d7e517ff36d6b9e4b9d
+vendor/lib64/libsnsdiaglog.so|1e09af3435f84f526f7c19c64afd2f97c1ddc4fb
+vendor/lib64/libssc.so|7ed47d51ac3f92e68e34f8ecb69ab476b55f1b85
 vendor/lib64/libssc_default_listener.so|3acd74b468b4d7dc7d11c4d2a608e0c9ecbef7f3
-vendor/lib64/sensors.elliptic.so
-vendor/lib64/sensors.ssc.so
+vendor/lib64/sensors.elliptic.so|d24e9764e1a4fc34208528cea3ad6ce8cb8ce93e
+vendor/lib64/sensors.ssc.so|7bc6596ac03f8e8fd16018726701f651d85e5ea9
 
 # Sensors configs
-system/etc/elliptic_fusion_sensor.xml
-system/etc/elliptic_sensor.xml:
+system/etc/elliptic_sensor.xml:vendor/etc/elliptic_sensor.xml
+#system/etc/elliptic_fusion_sensor.xml
 vendor/etc/sensors/config/8909w_bmi160_0.json
 vendor/etc/sensors/config/sdm670_cm3526_0.json
 vendor/etc/sensors/config/sdm670_bmp285_0.json
@@ -1028,3 +1004,6 @@ vendor/lib64/vendor.qti.hardware.vpp@1.2.so|ca1906012d0ab6dc9048aa49703833512308
 
 # WiFi - from Z01R WW_user_100.10.107.123_20210131
 vendor/bin/cnss-daemon|4b38cb464dfe8936dce42dc4f660fc41da1f7f12
+
+# WiPower
+vendor/bin/wipowerd

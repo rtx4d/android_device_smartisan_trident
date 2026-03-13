@@ -4,12 +4,10 @@
 # Leds nodes
 /sys/class/leds(/.*)?                                                                                  u:object_r:sysfs_leds:s0
 
-# Light sensor
-/sys/devices/virtual/light/light(/.*)?                                                                 u:object_r:sysfs_light_sensor:s0
-
 # HALs
-/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service-fpc1028                         u:object_r:hal_fingerprint_default_exec:s0
-/vendor/bin/hw/android\.hardware\.light-service\.akershus                                              u:object_r:hal_light_default_exec:s0
+/vendor/bin/hw/android\.hardware\.biometrics\.fpcfingerprint@2\.1-service                              u:object_r:hal_fingerprint_default_exec:s0
+/vendor/bin/hw/android\.hardware\.biometrics\.goodixfingerprint@2\.1-service                           u:object_r:hal_fingerprint_default_exec:s0
+/vendor/bin/hw/android\.hardware\.biometrics\.nvtfingerprint@2\.1-service                              u:object_r:hal_fingerprint_default_exec:s0
 /vendor/bin/hw/android\.hardware\.neuralnetworks@1\.3-service-qti                                      u:object_r:hal_neuralnetworks_default_exec:s0
 
 # Persist files

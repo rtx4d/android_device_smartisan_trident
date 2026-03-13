@@ -1,3 +1,86 @@
-on fs
-    start logic_volume
-    wait /dev/block/logic_data
+on boot
+    chmod 0644 /dev/goodix_fp
+    chown system system /dev/goodix_fp
+    chmod 0660 /dev/nvt_gpio_device
+    chown system system /dev/nvt_gpio_device
+    chmod 0644 /sys/bus/platform/devices/soc:fpc1020/wakeup_enable
+    chown system system /sys/bus/platform/devices/soc:fpc1020/wakeup_enable
+    chmod 0644 /sys/bus/platform/devices/soc:fpc1020/hw_reset
+    chown system system /sys/bus/platform/devices/soc:fpc1020/hw_reset
+    chmod 0644 /sys/bus/platform/devices/soc:fpc1020/irq
+    chown system system /sys/bus/platform/devices/soc:fpc1020/irq
+    chmod 0644 /sys/bus/platform/devices/soc:fpc1020/regulator_enable
+    chown system system /sys/bus/platform/devices/soc:fpc1020/regulator_enable
+    chmod 0644 /sys/bus/platform/devices/soc:fpc1020/device_prepare
+    chown system system /sys/bus/platform/devices/soc:fpc1020/device_prepare
+    chmod 0644 /sys/bus/platform/devices/soc:fpc1020/clk_enable
+    chown system system /sys/bus/platform/devices/soc:fpc1020/clk_enable
+    chmod 0644 /sys/bus/platform/devices/soc:fpc1020/pinctl_set
+    chown system system /sys/bus/platform/devices/soc:fpc1020/pinctl_set
+    chown system system /sys/factoryTest/fingerprint
+    chmod 0666 /sys/factoryTest/fingerprint
+    chown system system /sys/factoryTest/nfc
+    chmod 0666 /sys/factoryTest/nfc
+    chown system system /sys/factoryTest/sensor
+    chmod 0666 /sys/factoryTest/sensor
+    chown system system /sys/class/leds/wled/brightness
+    chmod 0666 /sys/class/leds/wled/brightness
+    chown system system /sys/class/backlight/panel0-backlight/brightness
+    chmod 0666 /sys/class/backlight/panel0-backlight/brightness
+    chown system system /dev/color_panel
+    chmod 0666 /dev/color_panel
+    chown system system /sys/devices/platform/soc/soc\:qcom,dsi-display@18/msm_fb_ie_level
+    chmod 0666 /sys/devices/platform/soc/soc\:qcom,dsi-display@18/msm_fb_ie_level
+    chown system system /sys/devices/platform/soc/soc\:qcom,dsi-display@18/panel_power_control
+    chmod 0666 /sys/devices/platform/soc/soc\:qcom,dsi-display@18/panel_power_control
+    chown system system /sys/bus/i2c/devices/14-004b/synaptics_tcm.0/synaptics_tcm/prs_en
+    chmod 0666 /sys/bus/i2c/devices/14-004b/synaptics_tcm.0/synaptics_tcm/prs_en
+    chmod 0644 /sys/class/dual_role_usb/otg_default/data_role
+    chmod 0666 /sys/devices/platform/soc/ae90000.qcom,dp_display/dp_ctrl_status
+
+    # Disable touch pressure
+    write /sys/bus/i2c/devices/14-004b/synaptics_tcm.0/synaptics_tcm/prs_en 0
+
+    # Wipower contrl sysfs
+    chown system system /sys/class/power_supply/dc/current_max
+    chown system system /sys/bus/i2c/devices/0-0061/chip_FC_enable
+    chown system system /sys/bus/i2c/devices/0-0061/get_vin
+    chown system system /sys/bus/i2c/devices/0-0061/FOD_5V
+    chown system system /sys/bus/i2c/devices/0-0061/FOD_9V
+    chown system system /sys/bus/i2c/devices/0-0061/ept
+
+    # Add ultrasound calibration dir
+    mkdir /persist/audio 0777 system system
+
+    # Wifi firmware reload path
+    chown wifi wifi /sys/module/wlan/parameters/fwpath
+
+    # Keypad
+    chown system system /proc/keypad/volume_up
+    chown system system /proc/keypad/volume_down
+    chown system system /proc/keypad/power
+    chown system system /proc/keypad/shortcuts
+
+on charger
+    start vendor.hvdcp_opti
+    start vendor.power_off_alarm
+    setprop vendor.usb.controller a600000.dwc3
+    setprop sys.usb.configfs 1
+# Wipower contrl sysfs
+    chown system system /sys/class/power_supply/dc/current_max
+    chown system system /sys/bus/i2c/devices/0-0061/chip_FC_enable
+    chown system system /sys/bus/i2c/devices/0-0061/get_vin
+    chown system system /sys/bus/i2c/devices/0-0061/FOD_5V
+    chown system system /sys/bus/i2c/devices/0-0061/FOD_9V
+    chown system system /sys/bus/i2c/devices/0-0061/ept
+    start wipowerd
+
+service wipowerd /vendor/bin/wipowerd
+    class main
+    user system
+    group system
+
+service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
+    class main
+    user root
+    group system wakelock
