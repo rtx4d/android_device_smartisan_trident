@@ -58,14 +58,16 @@ vendor/lib/rfsa/adsp/libscveT2T_skel.so
 vendor/lib/rfsa/adsp/libsns_low_lat_stream_skel.so
 
 # Audio
+vendor/lib/hw/audio.primary.sdm845.so|8d632aa773e6396acb86e636f888bc2350ff6deb
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
-#vendor/lib/libadm.so
+vendor/lib/libadm.so
 vendor/lib/libaudcal.so
-#vendor/lib/libaudioalsa.so
-#vendor/lib/libaudio_log_utils.so
+vendor/lib/libaudioalsa.so
+vendor/lib/libaudio_log_utils.so
 vendor/lib/libaudioparsers.so
+vendor/lib/libtinycompress_vendor.so
 vendor/lib/libqtigef.so
 
 # Audio FX modules
@@ -73,7 +75,6 @@ system/etc/permissions/audiosphere.xml
 system/framework/audiosphere.jar
 vendor/lib/soundfx/libasphere.so
 vendor/lib/soundfx/libshoebox.so
-vendor/lib/soundfx/libvolumelistener.so
 
 # Audio firmware
 vendor/firmware/debussy.bin
@@ -406,12 +407,12 @@ vendor/lib64/vendor.qti.esepowermanager@1.0.so|f176bd6f4bb7fd4453479dd04c407a2d0
 
 # Fingerprint - FPC
 vendor/bin/hw/android.hardware.biometrics.fpcfingerprint@2.1-service|96fa4fc0b1ff5008e0059845a1f616c2738b4cc9
-vendor/etc/init/android.hardware.biometrics.fpcfingerprint@2.1-service.rc|838abca243a6b2436bafd43bf1aff3593545bd56
+vendor/etc/init/android.hardware.biometrics.fpcfingerprint@2.1-service.rc|b051ee876fe2b02616cf851108653e020226030a
 vendor/lib64/com.fingerprints.extension@1.0.so|e5e584053c75fa22cc1a15d00bd9ebac856e98fc
 
 # Fingerprint - Goodix
 vendor/bin/hw/android.hardware.biometrics.goodixfingerprint@2.1-service
-vendor/etc/init/android.hardware.biometrics.goodixfingerprint@2.1-service.rc|6f1bef797f5d1b3fed2691138b8c4497f1dfcda6
+vendor/etc/init/android.hardware.biometrics.goodixfingerprint@2.1-service.rc|991d793bf1dcfef484f2106c9c03c0069107b2ca
 vendor/lib64/libgf_ca.so
 vendor/lib64/libgf_hal.so
 vendor/lib64/libgoodixfingerprintd_binder.so|37891b2885ed40e2b2afb4d30073fd3357768f6e
@@ -419,8 +420,8 @@ vendor/lib64/libgoodixhwfingerprint.so
 vendor/lib64/vendor.goodix.hardware.fingerprintextension@1.0.so|d2755d9ab458f734367fa7393d15870c647f264f
 
 # Fingerprint - Novatek
-vendor/bin/hw/android.hardware.biometrics.nvtfingerprint@2.1-service
-vendor/etc/init/android.hardware.biometrics.nvtfingerprint@2.1-service.rc|f8e0e4d1a01128f5c5e5607cac13786944b9831f
+vendor/bin/hw/android.hardware.biometrics.nvtfingerprint@2.1-service|1da8caf96cf6e88c778f6ac3fd6ad1a78b2e3040
+vendor/etc/init/android.hardware.biometrics.nvtfingerprint@2.1-service.rc|fea444b380bc5e36839b8e7ad1d1737f5731c875
 vendor/lib64/com.novatek.fingerprint@1.0_vendor.so|235fb1c3acef72e6f3feaabe4bca63afeca3ca81
 vendor/lib64/hw/nvtfingerprint.default.so
 vendor/lib64/libfpr_ca.so
@@ -433,9 +434,9 @@ system/lib64/libfm-hci.so:system_ext/lib64/libfm-hci.so
 vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.fm@1.0.so;MODULE_SUFFIX=_vendor
 
-# Gatekeeper
+# Gatekeeper  - from beryllium's MIUI package V12.0.3.0.QEJMIXM global stable version
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
-#vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
+vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
 # GPS - from PNX - PNX_00WW_FIH-user-11-RKQ1.200906.002-00WW_6_21F-release-keys
@@ -629,9 +630,9 @@ vendor/firmware/ipa_fws.mdt
 vendor/bin/msm_irqbalance|54c73b55125b13fa40abf3852bfae31bc217eddc
 vendor/etc/msm_irqbalance.conf|7394fdd30f52142ff99dd03e5ff991000c34a356
 
-# Keymaster
-#vendor/bin/hw/android.hardware.keymaster@3.0-service-qti
-#vendor/etc/init/android.hardware.keymaster@3.0-service-qti.rc
+# Keymaster - from polaris' MIUI package V12.0.3.0.QDGMIXM global stable
+vendor/bin/hw/android.hardware.keymaster@3.0-service-qti
+vendor/etc/init/android.hardware.keymaster@3.0-service-qti.rc
 vendor/lib64/hw/android.hardware.keymaster@3.0-impl-qti.so
 vendor/lib64/libkeymasterdeviceutils.so
 vendor/lib64/libkeymasterprovision.so
@@ -1004,6 +1005,3 @@ vendor/lib64/vendor.qti.hardware.vpp@1.2.so|ca1906012d0ab6dc9048aa49703833512308
 
 # WiFi - from Z01R WW_user_100.10.107.123_20210131
 vendor/bin/cnss-daemon|4b38cb464dfe8936dce42dc4f660fc41da1f7f12
-
-# WiPower
-vendor/bin/wipowerd

@@ -93,7 +93,7 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('liblog.so'),
     'vendor/lib64/libgoodixfingerprintd_binder.so': blob_fixup()
         .add_needed('libbinder_shim.so'),
-    ('vendor/lib64/vendor.goodix.hardware.fingerprintextension@1.0.so', 'vendor/lib64/com.fingerprints.extension@1.0.so', 'vendor/lib64/com.novatek.fingerprint@1.0_vendor.so', 'vendor/lib64/vendor.qti.hardware.fm@1.0.so', 'vendor/bin/hw/android.hardware.biometrics.fpcfingerprint@2.1-service'): blob_fixup()
+    ('vendor/lib64/vendor.goodix.hardware.fingerprintextension@1.0.so', 'vendor/lib64/com.fingerprints.extension@1.0.so', 'vendor/lib64/com.novatek.fingerprint@1.0_vendor.so', 'vendor/bin/hw/android.hardware.biometrics.fpcfingerprint@2.1-service', 'vendor/bin/hw/android.hardware.biometrics.nvtfingerprint@2.1-service'): blob_fixup()
         .replace_needed('libhidlbase.so', 'libhidlbase-v32.so'),
     ('vendor/lib/libmms_warper_vstab.so', 'vendor/lib/libmms_hal_vstab.so'): blob_fixup()
         .add_needed('libui_shim.so'),
@@ -101,7 +101,7 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('remote_handle_close')
         .clear_symbol_version('remote_handle_invoke')
         .clear_symbol_version('remote_handle_open'),
-    ('vendor/lib/libSMTSensorCalLibNative.so', 'vendor/lib64/libSMTSensorCalLibNative.so', 'vendor/lib/libsnsdiaglog.so', 'vendor/lib64/libsnsdiaglog.so', 'vendor/lib/libssc.so', 'vendor/lib64/libssc.so', 'vendor/lib/libsnsdiaglog.so', 'vendor/lib64/libsnsdiaglog.so', 'vendor/lib/libssc.so', 'vendor/lib64/libssc.so', 'vendor/lib/sensors.ssc.so', 'vendor/lib64/sensors.ssc.so', 'vendor/bin/sensors.qti', 'vendor/lib/hw/camera.qcom.so'): blob_fixup()
+    ('vendor/lib64/libsnsdiaglog.so', 'vendor/lib/libssc.so', 'vendor/lib64/libssc.so', 'vendor/lib64/sensors.ssc.so', 'vendor/bin/sensors.qti', 'vendor/lib/hw/camera.qcom.so'): blob_fixup()
         .replace_needed('libprotobuf-cpp-full.so', 'libprotobuf-cpp-full-v29.so'),
     'vendor/lib/hw/camera.qcom.so': blob_fixup()
         .clear_symbol_version('remote_handle64_close')
@@ -113,6 +113,10 @@ blob_fixups: blob_fixups_user_type = {
         .sig_replace('24 76 FF 97', '70 00 00 14'),
     'vendor/lib/libtt_panorama.so': blob_fixup()
         .replace_needed('libsensor.so', 'libsensor_vendor.so'),
+    'vendor/lib/hw/audio.primary.sdm845.so': blob_fixup()
+        .add_needed('libprocessgroup.so'),
+    ('vendor/etc/init/android.hardware.biometrics.fpcfingerprint@2.1-service.rc', 'vendor/etc/init/android.hardware.biometrics.goodixfingerprint@2.1-service.rc', 'vendor/etc/init/android.hardware.biometrics.nvtfingerprint@2.1-service.rc'): blob_fixup()
+        .regex_replace('system input', 'system uhid input'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(

@@ -162,8 +162,11 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/rtmv20               0660   system     system
 
 #permissions for Elliptics
-/dev/elliptic0            0644   root       root
-/dev/elliptic1            0644   root       root
+/dev/elliptic0            0666   root       root
+/dev/elliptic1            0666   root       root
+
+#permissions for audio intelligo
+/dev/intelligo            0660   system     audio
 
 #permissions for TAS
 /dev/tiload_node          0660   system     system

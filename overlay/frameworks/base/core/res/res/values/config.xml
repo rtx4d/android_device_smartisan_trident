@@ -426,9 +426,6 @@
     <!-- True if the device supports Sustained Performance Mode-->
     <bool name="config_sustainedPerformanceModeSupported">true</bool>
 
-    <!-- Whether device supports double tap to wake -->
-    <bool name="config_supportDoubleTapWake">true</bool>
-
     <!-- Whether to enable fused location provider overlay which allows fused
          location provider to be replaced by an app at run-time. When disabled,
          only the config_fusedLocationProviderPackageName package will be
@@ -473,13 +470,11 @@
 
          @see https://www.w3.org/TR/SVG/paths.html#PathData
          -->
-    <string translatable="false" name="config_mainBuiltInDisplayCutout">M -290,0 L -290,88 L 290,88 L 290,0 Z</string>
-
-    <!-- Whether the always on display mode is available. -->
-    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
-
-    <!-- Control whether the always on display mode is enabled by default. This value will be used
-         during initialization when the setting is still null. -->
-    <bool name="config_dozeAlwaysOnEnabled">false</bool>
+    <string translatable="false" name="config_mainBuiltInDisplayCutout">
+        M -52,0
+        V 82
+        H 52
+        V 0
+        Z</string>
 
 </resources>
