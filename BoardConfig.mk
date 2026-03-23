@@ -40,7 +40,7 @@ BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_CONFIG := trident_defconfig
+TARGET_KERNEL_CONFIG := vendor/smartisan/trident_defconfig
 TARGET_KERNEL_SOURCE := kernel/smartisan/sdm845
 
 # Platform

@@ -475,6 +475,11 @@
         V 82
         H 52
         V 0
-        Z</string>
+        Z
+    </string>
+
+    <!-- Height of the status bar -->
+    <dimen name="status_bar_height_portrait">82px</dimen>
+    <dimen name="status_bar_height_landscape">24dp</dimen>
 
 </resources>
