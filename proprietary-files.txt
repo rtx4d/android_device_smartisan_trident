@@ -58,16 +58,14 @@ vendor/lib/rfsa/adsp/libscveT2T_skel.so
 vendor/lib/rfsa/adsp/libsns_low_lat_stream_skel.so
 
 # Audio
-vendor/lib/hw/audio.primary.sdm845.so|8d632aa773e6396acb86e636f888bc2350ff6deb
+vendor/lib/hw/audio.primary.sdm845.so|2dfdb5c726ae37093623ab8bea5fd6305c1fbe52
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
-vendor/lib/libadm.so
 vendor/lib/libaudcal.so
 vendor/lib/libaudioalsa.so
 vendor/lib/libaudio_log_utils.so
 vendor/lib/libaudioparsers.so
-vendor/lib/libtinycompress_vendor.so
 vendor/lib/libqtigef.so
 
 # Audio FX modules
@@ -106,21 +104,18 @@ vendor/lib64/libsdsprpc.so|5837406a179e8964aac9d3752d18e5b51ac7e0b7
 vendor/lib64/libsysmon_cdsp_skel.so|e16a11b61e4ce3802211ad1d0572df64cf2ed14b
 
 # Camera configs
-system/etc/GyroOffset_db.config
-system/etc/fsync_db.config
-system/etc/vstab_db_0_1080p_video_30fps.config
-system/etc/vstab_db_0_1080p_video_60fps.config
-system/etc/vstab_db_0_4k_video_30fps.config
-system/etc/vstab_db_0_720p_video_30fps.config
-system/etc/vstab_db_1_1080p_video_30fps.config
-system/etc/vstab_db_1_720p_video_30fps.config
+system/etc/vstab_db_0_1080p_video_30fps.config:vendor/etc/vstab_db_0_1080p_video_30fps.config
+system/etc/vstab_db_0_1080p_video_60fps.config:vendor/etc/vstab_db_0_1080p_video_60fps.config
+system/etc/vstab_db_0_4k_video_30fps.config:vendor/etc/vstab_db_0_4k_video_30fps.config
+system/etc/vstab_db_0_720p_video_30fps.config:vendor/etc/vstab_db_0_720p_video_30fps.config
+system/etc/vstab_db_1_1080p_video_30fps.config:vendor/etc/vstab_db_1_1080p_video_30fps.config
+system/etc/vstab_db_1_720p_video_30fps.config:vendor/etc/vstab_db_1_720p_video_30fps.config
 vendor/etc/camera/camxoverridesettings.txt
-vendor/etc/camera/megvii/model
 
 # Camera lib
 vendor/lib/camera/components/com.arcsoft.node.capturebokeh.so
 vendor/lib/camera/components/com.arcsoft.node.realtimebokeh.so
-vendor/lib/camera/components/com.inv.node.eis.so
+vendor/lib/camera/components/com.inv.node.eis.so|6454392b5fcc0ec6d904048b0d18a94cccbfe174
 vendor/lib/camera/components/com.qti.eisv2.so
 vendor/lib/camera/components/com.qti.eisv3.so
 vendor/lib/camera/components/com.qti.hvx.addconstant.so
@@ -197,15 +192,11 @@ system/lib/libarcsoft_smart_denoise.so:vendor/lib/libarcsoft_smart_denoise.so|c6
 system/lib/libbeauty_momo_sm.so:vendor/lib/libbeauty_momo_sm.so|3465471c629e089b369bb90a7cd891b651487b17
 system/lib/libgnustl_shared.so:vendor/lib/libgnustl_shared.so
 system/lib/libimgcmp_jni.so:vendor/lib/libimgcmp_jni.so;DISABLE_CHECKELF|6eaad300ce7423e154cb32e4f42a985bee0c68d3
-system/lib/libmegface-new.so:vendor/lib/libmegface-new.so|40551b78ad9cd23e5e3eee55c6a035c7344b853a
-system/lib/libmegface.so:vendor/lib/libmegface.so
-system/lib/libmegface_megscene.so:vendor/lib/libmegface_megscene.so
-system/lib/libmegvii_scene.so:vendor/lib/libmegvii_scene.so
 system/lib/libmmcv_sm.so:vendor/lib/libmmcv_sm.so|58ebfe2ee88a6deb69a94da62dba96d88b06c90e
 system/lib/libmmcamera_dbg.so:vendor/lib/libmmcamera_dbg.so|2da2ac5393a8666693917bb72502e656707e8e9b
 system/lib/libmmcamera_hdr_tt_lib.so:vendor/lib/libmmcamera_hdr_tt_lib.so
 system/lib/libmpbase.so:vendor/lib/libmpbase.so
-system/lib/libnative-lib.so:vendor/lib/libnative-lib.so|libnative-lib
+system/lib/libnative-lib.so:vendor/lib/libnative-lib.so|a8356c3ee6c79f473d0918a9ec9ac7efcafa10d0
 system/lib/libvideoprocess.so:vendor/lib/libvideoprocess.so|6533805847c3579a07c9f61da4ddbdf79b72f371
 system/lib/libqcbor.so:vendor/lib/libqcbor.so
 system/lib/libsmart_autohdr.so:vendor/lib/libsmart_autohdr.so
@@ -638,6 +629,9 @@ vendor/lib64/libkeymasterdeviceutils.so
 vendor/lib64/libkeymasterprovision.so
 vendor/lib64/libkeymasterutils.so
 
+# Listen
+vendor/lib/hw/sound_trigger.primary.sdm845.so
+
 # Listen - from Z01R WW_user_100.10.107.123_20210131
 vendor/lib/libadpcmdec.so|92bcb045be14c04f852971c7893105be6485459b
 vendor/lib/libcapiv2svacnn.so|14bed0114ab64f704150ff58c47eed31d428ee28
@@ -827,7 +821,6 @@ vendor/lib64/sensors.ssc.so|7bc6596ac03f8e8fd16018726701f651d85e5ea9
 
 # Sensors configs
 system/etc/elliptic_sensor.xml:vendor/etc/elliptic_sensor.xml
-#system/etc/elliptic_fusion_sensor.xml
 vendor/etc/sensors/config/8909w_bmi160_0.json
 vendor/etc/sensors/config/sdm670_cm3526_0.json
 vendor/etc/sensors/config/sdm670_bmp285_0.json

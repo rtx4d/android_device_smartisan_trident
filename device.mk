@@ -96,14 +96,10 @@ PRODUCT_PACKAGES += \
     libprocessgroup.vendor \
     libqcompostprocbundle \
     libqcomvisualizer \
-    libqcomvoiceprocessing \
     libtinycompress \
     libvolumelistener \
-    tinymix \
-    libaudio-resampler \
-    libdynproc \
-    libtinyalsa
-    
+    tinymix
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/configs/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
     $(LOCAL_PATH)/audio/configs/audio_output_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_output_policy.conf \
@@ -389,8 +385,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl:64 \
     android.hardware.sensors@1.0-service \
-    libsensorndkbridge \
-    libnotifyaudiohal:64
+    libsensorndkbridge
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \

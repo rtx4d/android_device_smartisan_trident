@@ -67,8 +67,6 @@ lib_fixups: lib_fixups_user_type = {
         'vendor.qti.ims.rcsconfig@1.0',
         'vendor.qti.imsrtpservice@2.0.so',
         'vendor.qti.imsrtpservice@2.1.so',
-        'libmegvii_scene.so',
-        'libmegface.so',
         'libSNPE.so',
         'libsnpe_loader.so',
         'libsymphony-cpu.so',
@@ -87,8 +85,6 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libstdc++.so', 'libstdc++_vendor.so'),
     'vendor/lib/libimgcmp_jni.so': blob_fixup()
         .remove_needed('libskia.so'),
-    'vendor/lib64/libnotifyaudiohal.so': blob_fixup()
-        .remove_needed('libicuuc.so'),
     'vendor/lib/libmmcamera_dbg.so': blob_fixup()
         .add_needed('liblog.so'),
     'vendor/lib64/libgoodixfingerprintd_binder.so': blob_fixup()
@@ -114,9 +110,23 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib/libtt_panorama.so': blob_fixup()
         .replace_needed('libsensor.so', 'libsensor_vendor.so'),
     'vendor/lib/hw/audio.primary.sdm845.so': blob_fixup()
-        .add_needed('libprocessgroup.so'),
+        .add_needed('libprocessgroup.so')
+        .replace_needed('libtinycompress_vendor.so', 'libtinycompress.so'),
     ('vendor/etc/init/android.hardware.biometrics.fpcfingerprint@2.1-service.rc', 'vendor/etc/init/android.hardware.biometrics.goodixfingerprint@2.1-service.rc', 'vendor/etc/init/android.hardware.biometrics.nvtfingerprint@2.1-service.rc'): blob_fixup()
         .regex_replace('system input', 'system uhid input'),
+    'vendor/lib/camera/components/com.inv.node.eis.so': blob_fixup()
+        .binary_regex_replace(b'system/etc/vstab_db_0_1080p_video_30fps.config',
+                              b'vendor/etc/vstab_db_0_1080p_video_30fps.config')
+        .binary_regex_replace(b'system/etc/vstab_db_0_1080p_video_60fps.config',
+                              b'vendor/etc/vstab_db_0_1080p_video_60fps.config')
+        .binary_regex_replace(b'system/etc/vstab_db_0_4k_video_30fps.config',
+                              b'vendor/etc/vstab_db_0_4k_video_30fps.config')
+        .binary_regex_replace(b'system/etc/vstab_db_0_720p_video_30fps.config',
+                              b'vendor/etc/vstab_db_0_720p_video_30fps.config')
+        .binary_regex_replace(b'system/etc/vstab_db_1_1080p_video_30fps.config',
+                              b'vendor/etc/vstab_db_1_1080p_video_30fps.config')
+        .binary_regex_replace(b'system/etc/vstab_db_1_720p_video_30fps.config',
+                              b'vendor/etc/vstab_db_1_720p_video_30fps.config'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
