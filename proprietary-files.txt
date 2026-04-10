@@ -815,7 +815,7 @@ vendor/lib64/libsnsdiaglog.so|1e09af3435f84f526f7c19c64afd2f97c1ddc4fb
 vendor/lib64/libssc.so|7ed47d51ac3f92e68e34f8ecb69ab476b55f1b85
 vendor/lib64/libssc_default_listener.so|3acd74b468b4d7dc7d11c4d2a608e0c9ecbef7f3
 vendor/lib64/sensors.elliptic.so|d24e9764e1a4fc34208528cea3ad6ce8cb8ce93e
-vendor/lib64/sensors.ssc.so|ea409303877532801acbd9c18ddfd1c9a4024d62
+vendor/lib64/sensors.ssc.so|7bc6596ac03f8e8fd16018726701f651d85e5ea9
 
 # Sensors configs
 system/etc/elliptic_sensor.xml:vendor/etc/elliptic_sensor.xml

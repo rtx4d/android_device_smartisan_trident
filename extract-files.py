@@ -119,6 +119,8 @@ blob_fixups: blob_fixups_user_type = {
                               b'vendor/etc/vstab_db_1_1080p_video_30fps.config')
         .binary_regex_replace(b'system/etc/vstab_db_1_720p_video_30fps.config',
                               b'vendor/etc/vstab_db_1_720p_video_30fps.config'),
+    'vendor/lib64/sensors.ssc.so': blob_fixup()
+        .sig_replace('24 76 FF 97', '70 00 00 14'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
