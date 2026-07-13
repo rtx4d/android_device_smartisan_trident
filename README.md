@@ -3,7 +3,7 @@ Copyright (C) 2026 The LineageOS Project
 Device configuration for Smartisan R1
 =============================================
 
-The Smartisan R1 (codenamed _"trident"_) is a high-end smartphone from ZTE.
+The Smartisan R1 (codenamed _"trident"_) is a high-end smartphone from Smartisan.
 
 ## Device specifications
 
